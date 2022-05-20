@@ -1,0 +1,30 @@
+Download files from repo:
+wget https://github.com/durusarv/CS655-caching-project/archive/refs/heads/main.zip
+unzip main.zip
+
+
+Steps to install nginx:
+sudo apt update
+sudo apt install nginx
+sudo nginx -s stop
+
+Copy contents of config file:
+sudo cp -a nginx.conf /etc/nginx/nginx.conf
+
+Start nginx:
+sudo nginx
+sudo nginx -s reload
+
+Commands to clear log and cache:
+sudo truncate -s 0 /var/log/nginx/cache-access.log
+rm -r /var/cache/proxy-nginx/* # this command needs to be run as the root user
+nginx -s reload
+
+Python setup:
+sudo apt install python-pip
+pip install pandas
+
+Run experiment:
+sudo python nginx_client.py
+
+Please refer to the video for a step-by-step process
